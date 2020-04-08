@@ -5,24 +5,38 @@
 <head>
     <title>Coronavirus tracker App</title>
     <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
-<!--set an attribute in the controller, and looked it up on the template-->
-<p th:text="${testName}"></p>
 
-<table>
-    <tr>
-        <th>Country</th> 
-        <th>State</th>
-        <th>Total cases reported</th>
-    </tr>
-    <tr th:each="locationStat : ${locationStats}">
-        <td th:text="${locationStat.country}"></td>
-        <td th:text="${locationStat.state}"></td>
-        <td th:text="${locationStat.latestTotalCases}"></td>
-    </tr>
-</table>
+<h1>Coronavirus Tracker App</h1>
+<p>Lists the current number of cases reported across the world</p>
+
+<!--set an attribute in the controller, and looked it up on the template-->
+<!--<p th:text="${testName}"></p>-->
+
+<div class="jumbotron">
+    <h1 class="display-4" th:text="${totalReportedCases}"></h1>
+    <p class="lead">Total number of reported cases up to today</p>
+</div>
+
+<div class="container">
+    <table>
+        <tr>
+            <th>Country</th>
+            <th>State</th>
+            <th>Total cases reported</th>
+            <th>Changes since yesterday</th>
+        </tr>
+        <tr th:each="locationStat : ${locationStats}">
+            <td th:text="${locationStat.country}"></td>
+            <td th:text="${locationStat.state}"></td>
+            <td th:text="${locationStat.latestTotalCases}"></td>
+            <td th:text="${locationStat.diffFromPreviousDay}"></td>
+        </tr>
+    </table>
+</div>
 
 </body>
 </html>
