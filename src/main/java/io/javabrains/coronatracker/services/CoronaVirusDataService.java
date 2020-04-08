@@ -32,6 +32,10 @@ public class CoronaVirusDataService {
 
         List<LocationStats> newStats = new ArrayList<>();
 
+   /*     public List<LocationStats> getAllStats() {
+            return allStats;
+        }*/
+
         HttpClient client = HttpClient.newHttpClient();
 
         //create a request using the builder pattern
@@ -60,4 +64,7 @@ public class CoronaVirusDataService {
         this.allStats = newStats;
     }
 
+    public List<LocationStats> getAllStats() {
+        return allStats;
+    }
 }

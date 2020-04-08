@@ -10,6 +10,20 @@
 <body>
 <!--set an attribute in the controller, and looked it up on the template-->
 <p th:text="${testName}"></p>
+
+<table>
+    <tr>
+        <th>Country</th> 
+        <th>State</th>
+        <th>Total cases reported</th>
+    </tr>
+    <tr th:each="locationStat : ${locationStats}">
+        <td th:text="${locationStat.country}"></td>
+        <td th:text="${locationStat.state}"></td>
+        <td th:text="${locationStat.latestTotalCases}"></td>
+    </tr>
+</table>
+
 </body>
 </html>
 
