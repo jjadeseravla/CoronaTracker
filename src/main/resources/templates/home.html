@@ -9,6 +9,7 @@
 </head>
 
 <body>
+<div class="container">
 
 <h1>Coronavirus Tracker App</h1>
 <p>Lists the current number of cases reported across the world</p>
@@ -19,10 +20,14 @@
 <div class="jumbotron">
     <h1 class="display-4" th:text="${totalReportedCases}"></h1>
     <p class="lead">Total number of reported cases up to today</p>
+    <hr class="my-4">
+    <p>
+        <span>New cases reported from yesterday: </span>
+        <span th:text="${totalNewCases}"></span>
+    </p>
 </div>
 
-<div class="container">
-    <table>
+    <table class="table">
         <tr>
             <th>Country</th>
             <th>State</th>
